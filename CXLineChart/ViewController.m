@@ -25,6 +25,7 @@
     lin.dataArray  = arr;
     [lin loadData];
     [self.view addSubview:lin];
+    NSLog(@"-------");
 }
 
 
