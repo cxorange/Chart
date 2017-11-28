@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"hello world");
     NSMutableArray * arr = [NSMutableArray arrayWithCapacity:0];
     for (int i = 0; i < 24; i++) {
         int i = arc4random() % 10 + 1;
