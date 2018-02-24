@@ -272,5 +272,25 @@
     [self.lineLayer addAnimation:animation forKey:@"strokeEndAnimation"];
     
     
+//    self.gradientLayer.anchorPoint= CGPointMake(0, 0);
+    //创建组合动画
+    CABasicAnimation *aniScale = [CABasicAnimation animationWithKeyPath:@"transform.scale.x"];
+    aniScale.fromValue         = @0.0;
+    aniScale.toValue           = @1.0;
+    
+    CABasicAnimation * animationPos = [CABasicAnimation animationWithKeyPath:@"position.x"];
+    
+    animationPos.fromValue = [NSValue valueWithCGPoint:CGPointMake(0 , 0)];
+    animationPos.toValue   = [NSValue valueWithCGPoint:CGPointMake(0 , 1)];
+    
+    CAAnimationGroup * animationTotal = [CAAnimationGroup animation];
+    animationTotal.duration    = 1;
+    animationTotal.repeatCount = 1;
+    animationTotal.animations  = @[aniScale,animationPos];
+    animationTotal.timingFunction      = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    animationTotal.removedOnCompletion = NO;
+    animationTotal.fillMode            = kCAFillModeForwards;
+    [self.gradientLayer addAnimation:animationTotal forKey:@"grandientEndAnimation"];
+    
 }
 @end
